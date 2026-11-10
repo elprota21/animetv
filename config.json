@@ -1,12 +1,22 @@
 {
   "update": {
-    "versionCode": 8,
-    "versionName": "1.3.4",
-    "apkUrl": "https://github.com/elprota21/animetv/releases/download/animetv-1.3.4/app-debug.apk",
-    "notes": "Anuncios propios (inicio, pausa y catálogo) y actualización automática dentro de la app."
+    "versionCode": 9,
+    "versionName": "1.3.5",
+    "apkUrl": "https://github.com/elprota21/animetv/releases/download/animetv-1.3.5/app-debug.apk",
+    "notes": "Controles tactiles para el celular: tocar pausa/reanuda y doble toque a los lados adelanta o retrocede 10 s."
   },
   "ads": [
-    { "type": "image", "url": "https://raw.githubusercontent.com/elprota21/animetv/main/ads/ad-secret-files.png", "seconds": 10, "text": "SECRET FILES Historias" },
-    { "type": "image", "url": "https://raw.githubusercontent.com/elprota21/animetv/main/ads/ad-construye.png", "seconds": 10, "text": "Así se Construye 3D" }
+    {
+      "type": "image",
+      "url": "https://raw.githubusercontent.com/elprota21/animetv/main/ads/ad-secret-files.png",
+      "seconds": 10,
+      "text": "SECRET FILES Historias"
+    },
+    {
+      "type": "image",
+      "url": "https://raw.githubusercontent.com/elprota21/animetv/main/ads/ad-construye.png",
+      "seconds": 10,
+      "text": "Así se Construye 3D"
+    }
   ]
 }
