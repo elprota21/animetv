@@ -5,6 +5,7 @@ on:
     branches: [ main, master ]
   workflow_dispatch:
 
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,40 +13,33 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
-
       - name: Unpack project
         run: |
           unzip -o source.zip -d _src
           cp -a _src/AnimeTV/. .
           rm -rf _src
-
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
-
       - name: Install Android SDK packages
         run: |
           SDKMANAGER="$(ls -d $ANDROID_HOME/cmdline-tools/*/bin/sdkmanager | sort -V | tail -1)"
           yes | "$SDKMANAGER" --licenses > /dev/null 2>&1 || true
           "$SDKMANAGER" "platform-tools" "platforms;android-34" "build-tools;34.0.0"
-
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: '8.9'
-
       - name: Build debug APK
         run: gradle assembleDebug --no-daemon --stacktrace
-
       - uses: actions/upload-artifact@v4
         with:
           name: AnimeTV-apk
           path: app/build/outputs/apk/debug/app-debug.apk
-
       - name: Publish release with APK
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: animetv-1.3
-          name: AnimeTV 1.3
+          tag_name: animetv-1.3.1
+          name: AnimeTV 1.3.1
           files: app/build/outputs/apk/debug/app-debug.apk
           make_latest: false
